@@ -1,0 +1,215 @@
+<html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Calculator</title>
+    <style>
+        body{
+            background: linear-gradient(rgb(217, 58, 217),rgb(50, 50, 178),skyblue);
+            
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            /* min-height: 100vh; */
+            margin: 0;
+            align-items: center;
+
+        }
+        h1{
+            font-size:3vw;
+            padding-top: 2vw;
+            text-align: center;
+        }
+        h3{
+            font-size: 1.5vw;
+            text-align: center;
+        }
+        
+        #cal {
+            
+            width: 70%;
+            max-width: 30vw;
+            background-color: rgb(33, 33, 33);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"] {
+            width: 95%;
+            padding-left: .6vw;
+            height: 4vw;
+            font-size: 1.6vw;
+            font-weight: bold;
+            margin: .6vw;
+            border-radius: .3vw;
+            outline: none;
+            border: none;
+        }
+        input[type="button"] {
+            width: 23%;
+            height: 3rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 0.5%;
+            border-radius: 0.3rem;
+            outline: none;
+            background-color: #f0f0f0;
+            border: none;
+            transition: background-color 0.3s;
+        }
+
+        @media (max-width: 999px) {
+            h1 {
+                font-size: 6vw;
+            }
+
+            h3 {
+                font-size: 3vw;
+            }
+
+            input[type="button"] {
+                width: 22%;
+                height: 2.5rem;
+                font-size: 1rem;
+            }
+
+            input[type="text"] {
+                height: 2.5rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 6vw;
+            }
+
+            h3 {
+                font-size: 3vw;
+            }
+
+            input[type="button"] {
+                width: 21%;
+                height: 2.5rem;
+                font-size: 1rem;
+            }
+
+            input[type="text"] {
+                height: 2.5rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* #klc {
+            width: 96%;
+            padding-left: 1vw;
+            background-color: silver;
+
+        } */
+    </style>
+
+</head>
+
+<body>
+    <h1>Calculator</h1>
+    <h3>Created By Sachin</h3>
+    <div id="cal">
+        <form name="c">
+            <input type="text" name="klc" id="klc"  placeholder="0">
+            <br>
+
+            <input type="button" value="1" onclick="c.klc.value+=1">
+            <input type="button" value="2" onclick="c.klc.value+=2">
+            <input type="button" value="3" onclick="c.klc.value+=3">
+            <input type="button" value="+" onclick="add()">
+            <br>
+
+            <input type="button" value="4" onclick="c.klc.value+=4">
+            <input type="button" value="5" onclick="c.klc.value+=5">
+            <input type="button" value="6" onclick="c.klc.value+=6">
+            <input type="button" value="-" onclick="sub()">
+            <br>
+
+            <input type="button" value="7" onclick="c.klc.value+=7">
+            <input type="button" value="8" onclick="c.klc.value+=8">
+            <input type="button" value="9" onclick="c.klc.value+=9">
+            <input type="button" value="/" onclick="div()">
+            <br>
+
+            <input type="button" value="c" onclick="c.klc.value=''">
+            <input type="button" value="0" onclick="c.klc.value+=0">
+            <input type="button" value="=" onclick="c.klc.value=eval(c.klc.value)">
+            <input type="button" value="x" onclick="mul()">
+        </form>
+    </div>
+    <script>
+        function add() {
+            var act = 0, b = 0;
+            act = c.klc.value;
+            b = act.charAt(act.length - 1);
+            // alert(b);
+            if (b == '+' || b == '-' || b == '*' || b == '/') {
+                c.klc.value = act.substring(0, act.length - 1);
+                c.klc.value += '+';
+            }
+            else {
+                c.klc.value += '+';
+            }
+
+        }
+
+        function sub() {
+            var act = 0, b = 0;
+            act = c.klc.value;
+            b = act.charAt(act.length - 1);
+            // alert(b);
+            if (b == '+' || b == '-' || b == '*' || b == '/') {
+                c.klc.value = act.substring(0, act.length - 1);
+                c.klc.value += '-';
+            }
+            else {
+                c.klc.value += '-';
+            }
+
+        }
+
+        function div() {
+            var act = 0, b = 0;
+            act = c.klc.value;
+            b = act.charAt(act.length - 1);
+            // alert(b);
+            if (b == '+' || b == '-' || b == '*' || b == '/') {
+                c.klc.value = act.substring(0, act.length - 1);
+                c.klc.value += '/';
+            }
+            else {
+                c.klc.value += '/';
+            }
+
+        }
+
+        function mul() {
+            var act = 0, b = 0;
+            act = c.klc.value;
+            b = act.charAt(act.length - 1);
+            // alert(b);
+            if (b == '+' || b == '-' || b == '*' || b == '/') {
+                c.klc.value = act.substring(0, act.length - 1);
+                c.klc.value += '*';
+            }
+            else {
+                c.klc.value += '*';
+            }
+
+        }
+
+
+    </script>
+</body>
+
+</html>
